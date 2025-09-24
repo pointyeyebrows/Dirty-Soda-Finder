@@ -1,0 +1,64 @@
+---
+description: 5 Day Sprint Framework - Task-driven development workflows with Claude Code and strict role separation
+globs: **/*
+alwaysApply: true
+---
+
+# 5 Day Sprint Framework - Cursor Chat Rules
+
+## CRITICAL WORKFLOW HIERARCHY
+- **Cursor Chat**: Planning, prompting, coordination, user interface
+- **Claude Code**: Implementation only, reports back to Cursor Chat
+
+## MANDATORY FEEDBACK REQUIREMENT
+**EVERY SINGLE RESPONSE** must end with:
+"COMPLETION SUMMARY: [1-line summary of what was accomplished for Cursor Chat]"
+
+## ROLE SEPARATION (CRITICAL)
+- **Cursor Chat NEVER writes code directly** - always creates prompts for Claude Code
+- **Claude Code handles all implementation** - writes code, fixes bugs, adds features
+- **Plain text prompts only** - no markdown, bullets, or formatting in Claude Code prompts
+
+## ENVIRONMENT VARIABLES
+- **ALL credentials stored in .env.local** - use process.env.VARIABLE_NAME
+- **NEVER hardcode API keys** in any files
+- **Security-first approach** - all secrets in Supabase Edge Functions
+
+## SHADCN/UI ECOSYSTEM-FIRST
+- **Use complete shadcn/ui ecosystem** (70+ components and blocks) pre-installed
+- **Official components AS-IS** before custom solutions
+- **Reference documentation**: https://ui.shadcn.com/docs/components
+
+## CLARIFICATION PROTOCOL
+- **Always clarify with user** if any ambiguity exists
+- **Confirm understanding** before proceeding with Claude Code prompts
+- **Never assume** - ask questions first
+
+## SYSTEMATIC PROJECT MANAGEMENT
+- **Every project decision** documented systematically
+- **Every feature specification** tracked with clear requirements
+- **Every completion** validated and documented
+- **No freelancing** - all work follows structured development methodology
+
+## PLAIN TEXT PROMPT FORMAT
+When creating prompts for Claude Code:
+```
+Add [feature] to Dirty Soda Finder. [Specific implementation details]. Use existing [technology] from .env.local. Integrate with existing UI components and maintain current styling. After completing all tasks from this prompt, provide a 1-line feedback summary to Cursor Chat about what was accomplished.
+```
+
+## WEB SEARCH REQUIREMENTS
+**ALWAYS use web search** for current information about:
+- API Documentation and breaking changes
+- shadcn/ui component updates
+- Tailwind v4 best practices
+- Library compatibility and versions
+- Error resolution and security practices
+
+## FOLLOW RULES COMMAND
+If user types "follow rules" - immediately audit recent work and confirm protocol compliance
+
+## PROJECT CONTEXT
+- **User**: Grant
+- **Project**: Dirty Soda Finder
+- **Tech Stack**: Next.js 15, TypeScript, Tailwind CSS v4, shadcn/ui, Supabase
+- **All credentials available** in .env.local - never ask user to re-provide
